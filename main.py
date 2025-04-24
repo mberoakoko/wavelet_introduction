@@ -9,12 +9,12 @@ if __name__ == "__main__":
         loc_harmonics=[
             LocationBasedHarmonics(
                 location=1000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=10, resolution=sig_resolution)),
+                harmonics=SinusoidalHarmonics(freq=1, duration=1, resolution=sig_resolution)),
             LocationBasedHarmonics(
                 location=2000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=10., resolution=sig_resolution)),
+                harmonics=SinusoidalHarmonics(freq=1, duration=1., resolution=sig_resolution)),
             LocationBasedHarmonics(
                 location=3000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=10, resolution=sig_resolution)),
+                harmonics=SinusoidalHarmonics(freq=1, duration=1, resolution=sig_resolution)),
         ]
     )
