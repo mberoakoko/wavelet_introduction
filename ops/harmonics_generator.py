@@ -33,3 +33,21 @@ def compose_harmonics(harmonic_tune: np.ndarray, loc_harmonics: list[LocationBas
         accum[item.location: item.location+round(step)] += item.harmonics.generate_harmonics()
         return accum
     return functools.reduce(reduction_op, loc_harmonics, harmonic_tune)
+
+
+def generate_simple_signal(signal_resolution: int = 1000) -> np.ndarray:
+    result = compose_harmonics(
+        harmonic_tune=np.zeros(15000),
+        loc_harmonics=[
+            LocationBasedHarmonics(
+                location=1000,
+                harmonics=SinusoidalHarmonics(freq=10, duration=0.4, resolution=signal_resolution)),
+            LocationBasedHarmonics(
+                location=2200,
+                harmonics=SinusoidalHarmonics(freq=100, duration=1., resolution=signal_resolution)),
+            LocationBasedHarmonics(
+                location=3000,
+                harmonics=SinusoidalHarmonics(freq=1000, duration=0.2, resolution=signal_resolution)),
+        ]
+    )
+    return result

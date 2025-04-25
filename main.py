@@ -1,20 +1,7 @@
 import numpy as np
 
-from ops.harmonics_generator import SinusoidalHarmonics, compose_harmonics, LocationBasedHarmonics
+from ops.harmonics_generator import generate_simple_signal
+from ops.plotting_ops_matplotlib import Plotter
 
 if __name__ == "__main__":
-    sig_resolution=1000
-    result = compose_harmonics(
-        harmonic_tune=np.zeros(15000),
-        loc_harmonics=[
-            LocationBasedHarmonics(
-                location=1000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=1, resolution=sig_resolution)),
-            LocationBasedHarmonics(
-                location=2000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=1., resolution=sig_resolution)),
-            LocationBasedHarmonics(
-                location=3000,
-                harmonics=SinusoidalHarmonics(freq=1, duration=1, resolution=sig_resolution)),
-        ]
-    )
+    Plotter.plot_simple_harmonics(signal=generate_simple_signal(signal_resolution=10000))
